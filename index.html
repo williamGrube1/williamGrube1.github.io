@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William Grube</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/index.js"></script>
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_HAMTDSUiL200UN9RQyPHI");
+        })();
+    </script>
+</head>
+
+<body>
+    <section id="landing-page" onmousemove="moveBackground(event)">
+        <nav>
+            <figure>
+                <a href="#" class="click"><img src="/assets/logo.png" id="personal-logo" alt=""></a>
+            </figure>
+            <ul class="nav__link--list">
+                <li class="nav__link" onclick="toggleModal()">
+                    <a class="click nav__link--anchor 
+                                link__hover-effect 
+                                link__hover-effect--black">About</a>
+                </li>
+                <li class="nav__link">
+                    <a href="#projects" class="click nav__link--anchor 
+                                link__hover-effect 
+                                link__hover-effect--black">Projects</a>
+                </li>
+                <li class="nav__link" onclick="toggleModal()">
+                    <a class="click nav__link--anchor 
+                                link__hover-effect 
+                                link__hover-effect--black">Contact</a>
+                </li>
+                <li class="nav__link click" onclick="toggleContrast()">
+                    <a class="click nav__link--anchor 
+                                        link__hover-effect 
+                                        link__hover-effect--black">
+                        <i class="fas fa-adjust"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <header class="header">
+            <div class="header__contnet">
+                <h1 class="title">Hey</h1>
+                <h1 class="title blue">I'm William.</h1>
+            </div>
+            <p class="header__para">I'm a <b class="blue">Frontend Software Engineer</b> with a strong passion
+                for building web applications with great user experiences.
+                <br>Here's a bit more <b class="blue click" onclick="toggleModal()">about me</b>.
+            </p>
+            <div class="social__list">
+                <a target="_blank" href="https://www.linkedin.com/in/william-grube-16200a177/"
+                    class="social__link click"><i class="fab fa-linkedin-in"></i></a>
+                <a target="_blank" href="https://github.com/williamGrube1" class="social__link click"><i
+                        class="fab fa-github"></i></a>
+                <a target="_blank" href="/assets/WGresume.pdf" class="social__link click"><i
+                        class="fas fa-file-pdf"></i></a>
+            </div>
+        </header>
+        <a href="#">
+            <button class="mail__btn click" onclick="toggleModal()">
+                <i class="fas fa-envelope"></i>
+            </button>
+        </a>
+        <a href="#projects" class="scroll">
+            <div class="scroll__icon click"></div>
+        </a>
+        <div class="modal">
+            <div class="modal__half modal__about">
+                <h3 class="modal__title modal__title--about">Here's a bit about me.</h3>
+                <h4 class="modal__sub-title modal__sub-title--about">Frontend Software Engineer</h4>
+                <p class="modal__para">I am a Computer Science student at <b class="blue">North Dakota State
+                        University</b>. I have a strong passion for <b class="blue">front-end development</b>. I'm skilled
+                    in leadership and problem-solving. I am also a avid critical thinker. My motive is to
+                    create a supreme user experience.
+                </p>
+                <div class="modal__languages">
+                    <figure class="modal__language">
+                        <img class="modal__language--img"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+                            alt="">
+                        <span class="language__name">HTML</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img"
+                            src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png" alt="">
+                        <span class="language__name">CSS</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img"
+                            src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png" alt="">
+                        <span class="language__name">Java Script</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img"
+                            src="https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png" alt="">
+                        <span class="language__name">React</span>
+                    </figure>
+                </div>
+            </div>
+            <div class="modal__half modal__contact">
+                <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+                <h3 class="modal__title modal__title--contact">
+                    Lets have a chat!
+                </h3>
+                <h4 class="modal__sub-title modal__sub-title--contact">
+                    I'm currently open to new opportunities.
+                </h4>
+                <form onsubmit="contact(event)" id="contact__form">
+                    <div class="form__item">
+                        <label class="form__item--label">Name</label>
+                        <input type="text" name="user_name" class="input" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Email</label>
+                        <input type="email" name="user_email" class="input" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Message</label>
+                        <textarea type="text" name="message" class="input" required></textarea>
+                    </div>
+                    <button id="contact__submit" class="form__submit">
+                        Send it my way
+                    </button>
+                </form>
+                <div class="modal__orerlay modal__overlay--loading">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <div class="modal__overlay modal__overlay--success">
+                    Thanks for the message! Looking forward to speaking to you soon.
+                </div>
+            </div>
+        </div>
+        <img src="/assets/semi circle.svg" class="shape shape--0">
+        <img src="/assets/circle.svg" class="shape shape--1">
+        <img src="/assets/squiggly.svg" class="shape shape--2">
+        <img src="/assets/circle.svg" class="shape shape--3">
+        <img src="/assets/triangle.svg" class="shape shape--4">
+        <img src="/assets/circle.svg" class="shape shape--5">
+        <img src="/assets/squiggly.svg" class="shape shape--6">
+        <img src="/assets/circle.svg" class="shape shape--7">
+        <img src="/assets/semi circle.svg" class="shape shape--8">
+    </section>
+    <section id="projects">
+        <div class="container">
+            <div class="row">
+                <h1 class="section__title">
+                    Here are some of my <span class="blue">projects</span>
+                </h1>
+                <ul class="project__list">
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="/assets/library.PNG" class="project__img" alt="">
+                            <div class="project__wrapper--background"></div>
+                            <div class="project__description">
+                                <h3 class="project__description--title">Online Library Project</h3>
+                                <h4 class="project__description--sub-title">HTML, CSS, Javascript</h4>
+                                <p class="project__description--para">I developed this website to polish my skills with HTML, CSS, and JavaScript. This website acts as an online library. You
+                                are able to sort the books by price and by rating.
+                                </p>
+                                <div class="project__description--links">
+                                    <a href="https://github.com/williamGrube1" target="_blank"
+                                        class="project__description--link" lass="project__description--link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="" target="_blank" class="project__description--link"><i
+                                            class="fas fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper">
+                            <img src="/assets/thisprof.PNG" class="project__img" alt="">
+                            <div class="project__wrapper--background"></div>
+                            <div class="project__description">
+                                <h3 class="project__description--title">This E-Profolio!</h3>
+                                <h4 class="project__description--sub-title">HTML, CSS, Javascript</h4>
+                                <p class="project__description--para">I developed this profolio to showcase my skills with HTML, CSS, and JavaScript. This website has many unique features,
+                                like the shapes that move based on your mouse, changing the contrast (top right on nav), a contact modal, and many more.
+                                Explore!
+                                </p>
+                                <div class="project__description--links">
+                                    <a href="https://github.com/williamGrube1" target="_blank"
+                                        class="project__description--link" lass="project__description--link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="#" target="_blank" class="project__description--link"><i
+                                            class="fas fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <h1 class="section__title section__title--proj">I have <b class="blue">real world</b> projects in progress</h1>
+                <ul class="project__list">
+                    <li class="project">
+                        <div class="project__wrapper project__wrapper--real">
+                            <img src="/assets/r.PNG" class="project__img project__img--real" alt="">
+                            <div class="project__wrapper--background"></div>
+                            <div class="project__description">
+                                <h3 class="project__description--title">Remele Custom Beef</h3>
+                                <h4 class="project__description--sub-title">HTML, CSS, Javascript, React</h4>
+                                <p class="project__description--para">I am developing a website for a family friend. This website is for there custom beef company. They sell wagyu beef out of
+                                southwest Minnesota. This website will be an ecomerce website. The website will also have a blog, and a place for
+                                customers to respond to the blog. Click the link button to check out there Instagram page!
+                                </p>
+                                <div class="project__description--links">
+                                    <a href="https://www.instagram.com/remmelecustombeef/?hl=en" target="_blank" class="project__description--link"><i
+                                            class="fas fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="project">
+                        <div class="project__wrapper project__wrapper--real">
+                            <img src="/assets/issacHoldingCamera.jpg" class="project__img project__img--isaac" alt="">
+                            <div class="project__wrapper--background"></div>
+                            <div class="project__description">
+                                <h3 class="project__description--title">27th Studio</h3>
+                                <h4 class="project__description--sub-title">HTML, CSS, Javascript, React</h4>
+                                <p class="project__description--para">I am developing a website for my friend, who is also my roomate. He is a very talented photographer and videoagrapher.
+                                This website will help launch his company 27th Studio. Click the link button to check out his youtube!
+                                </p>
+                                <div class="project__description--links">
+                                    <a href="https://www.youtube.com/channel/UC-OwYyPEol181Wrrin6UwTw" target="_blank" class="project__description--link"><i
+                                            class="fas fa-link"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row footer__row">
+                <figure>
+                    <a href="#" class="click"><img class="footer__logo--img" src="/assets/logo.png" alt=""></a>
+                </figure>
+                <div class="footer__social--list">
+                    <a href="https://github.com/williamGrube1" target="_blank" class="footer__social--link
+                                link__hover-effect link__hover-effect--white">
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/william-grube-16200a177/" target="_blank" class="footer__social--link
+                                link__hover-effect link__hover-effect--white">
+                        LinkedIn
+                    </a>
+                    <a href="#" onclick="toggleModal()" class="footer__social--link
+                                link__hover-effect link__hover-effect--white">
+                        Contact
+                    </a>
+                    <a href="/assets/WGresume.pdf" target="_blank" class="footer__social--link
+                                link__hover-effect link__hover-effect--white">
+                        Resume
+                    </a>
+                </div>
+                <div class="footer__copyright">
+                    Copyright &copy; 2022 William Grube
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
