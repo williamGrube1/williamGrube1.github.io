@@ -33,6 +33,7 @@ section{
     margin-bottom: 12px;
     text-align: left;
     line-height: 1;
+    z-index: 2;
 }
 
 .blue {
@@ -520,6 +521,7 @@ Projects
     text-align: center;
     font-size: 48px;
     margin-bottom: 60px;
+    z-index: 2;
 }
 
 .section__title--proj {
@@ -721,6 +723,15 @@ shapes
     .modal--open .project,
     .modal--open .mail__btn{
         visibility: hidden;
+    }
+
+    .project__wrapper--real {
+        height: 100%;
+    }
+
+    .project__img--isaac {
+        position: relative;
+        height: 250px;
     }
 }
 
